@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASKM4Change Foundation — Australian charity supporting underprivileged minority communities. Donate, volunteer, and create lasting change.">
+  <title>ASKM4Change Foundation — Support. Empower. Change.</title>
+  <!-- Google Fonts: clean & accessible -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- RESET & GLOBAL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #E9B741;
+      --gold-light: #F9E2A0;
+      --green: #2C7A4D;
+      --green-light: #E1F0E6;
+      --blue: #1E5F8E;
+      --blue-light: #DBE9F5;
+      --neutral-50: #FCFAF7;
+      --neutral-100: #F6F2EC;
+      --neutral-700: #4A3F35;
+      --neutral-900: #1E1A16;
+      --white: #FFFFFF;
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--neutral-50);
+      color: var(--neutral-900);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    h1 { font-size: 2.75rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--neutral-900);
+      box-shadow: 0 6px 16px rgba(233, 183, 65, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #d9a52e;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(233, 183, 65, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--green);
+      color: var(--green);
+    }
+
+    .btn-outline:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-blue {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn-blue:hover {
+      background: #154c72;
+      transform: translateY(-2px);
+    }
+
+    .btn-small {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- HEADER & NAV ---------- */
+    .site-header {
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--neutral-900);
+    }
+
+    .logo-icon {
+      background: var(--gold);
+      color: var(--neutral-900);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      color: var(--green);
+    }
+
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .main-nav a {
+      font-weight: 500;
+      color: var(--neutral-700);
+      transition: color 0.2s;
+    }
+
+    .main-nav a:hover {
+      color: var(--green);
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Mobile menu toggle (simple, no JS) */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: var(--neutral-700);
+      cursor: pointer;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 60px 0 80px;
+      background: linear-gradient(145deg, var(--neutral-50) 0%, #F9F5EF 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 40px;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(120deg, var(--gold-light) 0%, var(--gold-light) 80%, transparent 80%);
+      padding: 0 8px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--neutral-700);
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .hero-visual {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--neutral-100);
+    }
+
+    .impact-stat {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--neutral-100);
+    }
+
+    .impact-stat:last-child {
+      border-bottom: none;
+    }
+
+    .impact-icon {
+      background: var(--blue-light);
+      color: var(--blue);
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .impact-text strong {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+    }
+
+    .impact-text span {
+      color: var(--neutral-700);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- SECTION TITLES ---------- */
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title h2 {
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--neutral-700);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ---------- PROGRAMS ---------- */
+    .programs {
+      padding: 80px 0;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .program-card {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 28px 20px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--neutral-100);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .program-icon {
+      background: var(--gold-light);
+      color: var(--neutral-900);
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .program-card:nth-child(2) .program-icon { background: var(--green-light); color: var(--green); }
+    .program-card:nth-child(3) .program-icon { background: var(--blue-light); color: var(--blue); }
+    .program-card:nth-child(4) .program-icon { background: #FCE9E9; color: #B33A3A; }
+
+    .program-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .program-card p {
+      color: var(--neutral-700);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- IMPACT / DONATION COUNTER ---------- */
+    .impact-section {
+      padding: 60px 0;
+      background: var(--white);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .impact-card {
+      padding: 24px;
+    }
+
+    .impact-number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .impact-label {
+      font-weight: 500;
+      color: var(--neutral-700);
+    }
+
+    /* ---------- GET INVOLVED / VOLUNTEER ---------- */
+    .involved {
+      padding: 80px 0;
+    }
+
+    .involved-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .involved-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--neutral-100);
+    }
+
+    .involved-card h3 {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .involved-card ul {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .involved-card li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      color: var(--neutral-700);
+    }
+
+    .involved-card li i {
+      color: var(--green);
+      width: 20px;
+    }
+
+    .donate-progress {
+      background: var(--neutral-100);
+      border-radius: 40px;
+      height: 12px;
+      width: 100%;
+      margin: 20px 0 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: var(--gold);
+      height: 100%;
+      width: 68%;
+      border-radius: 40px;
+    }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonials {
+      padding: 60px 0;
+      background: var(--white);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .testimonial-card {
+      background: var(--neutral-50);
+      border-radius: var(--radius-sm);
+      padding: 28px;
+      border-left: 6px solid var(--gold);
+    }
+
+    .testimonial-card p {
+      font-size: 1.05rem;
+      color: var(--neutral-700);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      background: var(--green-light);
+      color: var(--green);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .author-info strong {
+      display: block;
+    }
+
+    .author-info span {
+      font-size: 0.9rem;
+      color: var(--neutral-700);
+    }
+
+    /* ---------- NEWSLETTER ---------- */
+    .newsletter {
+      padding: 60px 0;
+      background: var(--green);
+      color: white;
+    }
+
+    .newsletter h2 {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .newsletter p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 28px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 500px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px 20px;
+      border-radius: 40px;
+      border: none;
+      font-family: var(--font);
+      font-size: 1rem;
+    }
+
+    .newsletter-form input:focus {
+      outline: 3px solid var(--gold-light);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .site-footer {
+      background: var(--neutral-900);
+      color: #CBC5BD;
+      padding: 60px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .logo {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-links a {
+      background: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .social-links a:hover {
+      background: var(--gold);
+      color: var(--neutral-900);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom a {
+      color: #CBC5BD;
+      text-decoration: underline;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--gold);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1024px) {
+      h1 { font-size: 2.4rem; }
+      .program-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.7rem; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero p { max-width: 100%; }
+      .involved-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr; gap: 16px; }
+      .main-nav ul { display: none; }
+      .menu-toggle { display: block; }
+      .nav-cta .btn { padding: 10px 16px; font-size: 0.9rem; }
+      .header-inner { justify-content: space-between; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .newsletter-form { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .program-grid { grid-template-columns: 1fr; }
+      .hero-actions .btn { width: 100%; }
+      .nav-cta { display: none; }
+    }
+
+    /* Accessibility focus styles */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+    }
+
+    /* Skip to content link for screen readers */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--gold);
+      color: var(--neutral-900);
+      padding: 8px 16px;
+      z-index: 999;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 0 0 8px 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="ASKM4Change Foundation home">
+        <div class="logo-icon" aria-hidden="true">A</div>
+        <div class="logo-text">ASK<span>M4</span>Change</div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#involved">Get Involved</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#donate" class="btn btn-primary btn-small"><i class="fas fa-heart" aria-hidden="true"></i> Donate</a>
+        <a href="#involved" class="btn btn-outline btn-small">Volunteer</a>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-badge"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Australian charity · Est. 2020</span>
+          <h1 id="hero-heading">Supporting <span class="highlight">underprivileged communities</span> across Australia.</h1>
+          <p>ASKM4Change Foundation delivers practical support, education, and health services to minority communities facing rising living costs. Together, we turn compassion into action.</p>
+          <div class="hero-actions">
+            <a href="#donate" class="btn btn-primary"><i class="fas fa-heart" aria-hidden="true"></i> Donate now</a>
+            <a href="#involved" class="btn btn-outline"><i class="fas fa-hands-helping" aria-hidden="true"></i> Become a volunteer</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Impact statistics">
+          <div class="impact-stat">
+            <div class="impact-icon"><i class="fas fa-people-arrows" aria-hidden="true"></i></div>
+            <div class="impact-text"><strong>12,400+</strong><span>people supported last year</span></div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+            <div class="impact-text"><strong>34</strong><span>community education programs</span></div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-icon"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i></div>
+            <div class="impact-text"><strong>92¢</strong><span>of every dollar goes to programs</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="programs" class="programs" aria-labelledby="programs-heading">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="programs-heading">Our programs & initiatives</h2>
+          <p>Practical, community-led solutions that address immediate needs and build long-term resilience.</p>
+        </div>
+        <div class="program-grid">
+          <div class="program-card">
+            <div class="program-icon"><i class="fas fa-basket-shopping" aria-hidden="true"></i></div>
+            <h3>Essential Support</h3>
+            <p>Food hampers, utility relief, and emergency assistance for families facing hardship.</p>
+          </div>
+          <div class="program-card">
+            <div class="program-icon"><i class="fas fa-book-open" aria-hidden="true"></i></div>
+            <h3>Education & Skills</h3>
+            <p>After-school tutoring, digital literacy, and job-readiness workshops for youth and adults.</p>
+          </div>
+          <div class="program-card">
+            <div class="program-icon"><i class="fas fa-heart-pulse" aria-hidden="true"></i></div>
+            <h3>Health & Wellbeing</h3>
+            <p>Mobile health clinics, mental health first aid, and culturally safe care navigation.</p>
+          </div>
+          <div class="program-card">
+            <div class="program-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
+            <h3>Inclusion & Belonging</h3>
+            <p>Community events, language support, and advocacy for minority groups.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT COUNTERS -->
+    <section id="impact" class="impact-section" aria-labelledby="impact-heading">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="impact-heading">Our impact so far</h2>
+          <p>Transparent outcomes powered by generous donors and dedicated volunteers.</p>
+        </div>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <div class="impact-number">12,400+</div>
+            <div class="impact-label">Individuals supported</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-number">87</div>
+            <div class="impact-label">Community partners</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-number">$1.2M</div>
+            <div class="impact-label">Invested in programs</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GET INVOLVED / VOLUNTEER + DONATE -->
+    <section id="involved" class="involved" aria-labelledby="involved-heading">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="involved-heading">Get involved</h2>
+          <p>Whether you give time, funds, or skills — every contribution creates change.</p>
+        </div>
+        <div class="involved-grid">
+          <!-- Volunteer card -->
+          <div class="involved-card">
+            <h3><i class="fas fa-hands-helping" style="color: var(--green);" aria-hidden="true"></i> Volunteer with us</h3>
+            <p style="color: var(--neutral-700);">Join a passionate team making a real difference in local communities.</p>
+            <ul>
+              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Community pantry assistant</li>
+              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Tutoring & mentoring</li>
+              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Event support</li>
+              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Admin & outreach</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="margin-top: 8px;"><i class="fas fa-arrow-right" aria-hidden="true"></i> Sign up to volunteer</a>
+          </div>
+
+          <!-- Donate card with progress -->
+          <div class="involved-card" id="donate">
+            <h3><i class="fas fa-heart" style="color: var(--gold);" aria-hidden="true"></i> Donate today</h3>
+            <p style="color: var(--neutral-700);">Your gift provides food, education, and health support to those who need it most.</p>
+            <div style="margin-top: 20px;">
+              <div style="display: flex; justify-content: space-between; font-weight: 500; font-size: 0.95rem;">
+                <span>Emergency relief fund</span>
+                <span>$34,200 raised of $50,000</span>
+              </div>
+              <div class="donate-progress" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="Donation progress: 68 percent">
+                <div class="progress-fill"></div>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--neutral-700); margin-bottom: 20px;">68% funded — help us reach our goal.</p>
+              <a href="#" class="btn btn-primary"><i class="fas fa-credit-card" aria-hidden="true"></i> Donate securely</a>
+              <p style="font-size: 0.8rem; margin-top: 12px; color: var(--neutral-700);">Secure payments via Stripe & PayPal. All donations over $2 are tax-deductible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS / SUCCESS STORIES -->
+    <section class="testimonials" aria-labelledby="stories-heading">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="stories-heading">Stories of change</h2>
+          <p>Real voices from the community we serve.</p>
+        </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p>“The education program gave my children the confidence to thrive at school. We finally feel supported.”</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">A</div>
+              <div class="author-info"><strong>Amina K.</strong><span>Program participant</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p>“Volunteering with ASKM4Change has been life-changing. You can see the direct impact in people’s lives.”</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">J</div>
+              <div class="author-info"><strong>James R.</strong><span>Volunteer, 2 years</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <div class="container">
+        <div style="max-width: 600px;">
+          <h2 id="newsletter-heading">Stay connected</h2>
+          <p>Get updates on our programs, impact stories, and events. We respect your privacy.</p>
+          <form class="newsletter-form" action="#" method="post">
+            <label for="newsletter-email" class="sr-only" style="position: absolute; left: -9999px;">Email address</label>
+            <input type="email" id="newsletter-email" name="email" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary" style="background: white; color: var(--neutral-900);">Subscribe</button>
+          </form>
+          <p style="font-size: 0.8rem; margin-top: 16px; opacity: 0.8;">By subscribing you agree to our privacy policy. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon" aria-hidden="true">A</div>
+            <div class="logo-text" style="color: white;">ASK<span style="color: var(--gold);">M4</span>Change</div>
+          </div>
+          <p>ASKM4Change Foundation is a registered Australian charity supporting underprivileged minority communities through practical support, education, health, and inclusion.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#involved">Volunteer</a></li>
+            <li><a href="#donate">Donate</a></li>
+            <li><a href="#impact">Impact & reports</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">News & events</a></li>
+            <li><a href="#">Annual reports</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Accessibility</a></li>
+            <li><a href="#">Child safety</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><i class="fas fa-envelope" style="margin-right: 8px; color: var(--gold);" aria-hidden="true"></i> <a href="mailto:info@ask4change.org.au">info@ask4change.org.au</a></li>
+            <li><i class="fas fa-phone" style="margin-right: 8px; color: var(--gold);" aria-hidden="true"></i> <a href="tel:+61390000000">(03) 9000 0000</a></li>
+            <li><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--gold);" aria-hidden="true"></i> Melbourne, VIC, Australia</li>
+            <li><i class="fas fa-clock" style="margin-right: 8px; color: var(--gold);" aria-hidden="true"></i> Mon–Fri, 9am–5pm AEST</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 ASKM4Change Foundation. ABN 12 345 678 910. All rights reserved.</p>
+        <p><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Complaints</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tiny script: update progressbar aria and add mobile menu behavior (optional but accessible) -->
+  <script>
+    (function() {
+      // Mobile menu toggle – simple, with aria-expanded
+      const toggleBtn = document.querySelector('.menu-toggle');
+      const mainNav = document.querySelector('.main-nav ul');
+      if (toggleBtn && mainNav) {
+        toggleBtn.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+          this.setAttribute('aria-expanded', expanded);
+          if (mainNav.style.display === 'flex') {
+            mainNav.style.display = '';
+          } else {
+            mainNav.style.display = 'flex';
+            mainNav.style.flexDirection = 'column';
+            mainNav.style.width = '100%';
+            mainNav.style.padding = '20px 0';
+            mainNav.style.gap = '16px';
+          }
+        });
+      }
+
+      // Set progress bar aria value for accessibility
+      const progressBar = document.querySelector('.donate-progress');
+      if (progressBar) {
+        // aria-valuenow already set to 68
+      }
+    })();
+  </script>
+</body>
+</html>
